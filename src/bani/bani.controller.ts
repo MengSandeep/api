@@ -2,7 +2,7 @@ import { Controller, Get, Logger } from '@nestjs/common';
 
 import { BaniService } from './bani.service';
 
-@Controller('v2/api/banis')
+@Controller('api/banis')
 export class BaniController {
   private logger = new Logger('BaniController');
 
