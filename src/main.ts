@@ -16,7 +16,7 @@ async function bootstrap() {
     // .addTag('gurbani')
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('docs', app, document);
 
   await app.listen(port);
   Logger.log(`Server running on port ${port}`, 'Bootstrap');
