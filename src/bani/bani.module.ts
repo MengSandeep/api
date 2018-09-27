@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { BaniController } from './bani.controller';
-import { BaniEntity } from './bani.entity';
+import database from '@shabados/database';
 import { BaniService } from './bani.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([BaniEntity])],
   controllers: [BaniController],
   providers: [BaniService],
 })

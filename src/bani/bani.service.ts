@@ -1,22 +1,15 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-
-import { BaniEntity } from './bani.entity';
+import { Banis } from '@shabados/database';
 
 @Injectable()
 export class BaniService {
-  constructor(
-    @InjectRepository(BaniEntity)
-    private baniRepository: Repository<BaniEntity>,
-  ) {}
-
   async showAll() {
-    return await this.baniRepository.find();
+    console.log('fdawdwa')
+    return await Banis.query();
   }
 
-  async read(id: string) {
-    const bani = await this.baniRepository.findOne({ where: { id } });
+  async read(id: number) {
+    const bani = await Banis.query().where('id', id).first();
     if (!bani) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
